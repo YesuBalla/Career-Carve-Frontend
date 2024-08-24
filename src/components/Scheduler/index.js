@@ -171,7 +171,8 @@ class Scheduler extends Component {
         this.setState({showSchedules:!this.state.showSchedules})
     }
 
-    renderStudentSchedules = () => {
+    renderStudentSchedules = async () => {
+        await this.getBookingsData();
         const { bookingsList } = this.state;
         return (
             <SchedulesContainer>
