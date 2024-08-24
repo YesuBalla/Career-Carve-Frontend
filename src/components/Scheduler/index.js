@@ -171,31 +171,17 @@ class Scheduler extends Component {
         this.setState({showSchedules:!this.state.showSchedules})
     }
 
-    renderStudentSchedules = async () => {
-        try {
-            await this.getBookingsData();
-            const { bookingsList } = this.state;
-            return (
-                <SchedulesContainer>
-                    <ScheduleList>
-                        {bookingsList && bookingsList.length > 0 ? (
-                            bookingsList.map((booking) => (
-                                <ScheduleItem key={booking.id} value={booking} />
-                            ))
-                        ) : (
-                            <p>No bookings available</p>
-                        )}
-                    </ScheduleList>
-                </SchedulesContainer>
-            ); 
-        } catch (error) {
-            console.error('Error fetching bookings data:', error);
-            return (
-                <SchedulesContainer>
-                    <p>Error loading schedules. Please try again later.</p>
-                </SchedulesContainer>
-            );
-        }
+    renderStudentSchedules = () => {
+        const { bookingsList } = this.state;
+        return (
+            <SchedulesContainer>
+                <ScheduleList>
+                    {bookingsList.map((booking) => (
+                        <ScheduleItem key={booking.id} value={booking} />
+                    ))}
+                </ScheduleList>
+            </SchedulesContainer>
+        ); 
     };
 
     renderLoader = () => (
