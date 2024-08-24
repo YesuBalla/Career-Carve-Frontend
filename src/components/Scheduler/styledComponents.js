@@ -264,6 +264,6 @@ export const ScheduleList = styled.ul`
     list-style-type: none;
     padding: 0px;
     overflow: auto;
-    height: 60vh;
+    height: 50vh;
 `
 
